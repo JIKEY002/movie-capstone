@@ -1,0 +1,158 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/common/prisma/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Banner {
+  id        Int       @id @default(autoincrement())
+  hinhAnh   String?   @db.VarChar(255)
+  maPhim    Int
+  deletedBy Int       @default(0)
+  isDeleted Boolean   @default(false)
+  deletedAt DateTime? @db.Timestamp(0)
+  createdAt DateTime  @default(now()) @db.Timestamp(0)
+  updatedAt DateTime  @default(now()) @db.Timestamp(0)
+  Phim      Phim      @relation(fields: [maPhim], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Banner_ibfk_1")
+
+  @@index([maPhim], map: "maPhim")
+}
+
+model CumRap {
+  id           Int        @id @default(autoincrement())
+  tenCumRap    String?    @db.VarChar(255)
+  diaChi       String?    @db.VarChar(255)
+  maHeThongRap Int
+  deletedBy    Int        @default(0)
+  isDeleted    Boolean    @default(false)
+  deletedAt    DateTime?  @db.Timestamp(0)
+  createdAt    DateTime   @default(now()) @db.Timestamp(0)
+  updatedAt    DateTime   @default(now()) @db.Timestamp(0)
+  HeThongRap   HeThongRap @relation(fields: [maHeThongRap], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "CumRap_ibfk_1")
+  RapPhim      RapPhim[]
+
+  @@index([maHeThongRap], map: "maHeThongRap")
+}
+
+model DatVe {
+  id          Int       @id @default(autoincrement())
+  maNguoiDung Int
+  maLichChieu Int
+  maGhe       Int
+  deletedBy   Int       @default(0)
+  isDeleted   Boolean   @default(false)
+  deletedAt   DateTime? @db.Timestamp(0)
+  createdAt   DateTime  @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime  @default(now()) @db.Timestamp(0)
+  NguoiDung   NguoiDung @relation(fields: [maNguoiDung], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "DatVe_ibfk_1")
+  LichChieu   LichChieu @relation(fields: [maLichChieu], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "DatVe_ibfk_2")
+  Ghe         Ghe       @relation(fields: [maGhe], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "DatVe_ibfk_3")
+
+  @@index([maGhe], map: "maGhe")
+  @@index([maLichChieu], map: "maLichChieu")
+  @@index([maNguoiDung], map: "maNguoiDung")
+}
+
+model Ghe {
+  id        Int       @id @default(autoincrement())
+  tenGhe    String?   @db.VarChar(255)
+  loaiGhe   String?   @db.VarChar(255)
+  maRap     Int
+  deletedBy Int       @default(0)
+  isDeleted Boolean   @default(false)
+  deletedAt DateTime? @db.Timestamp(0)
+  createdAt DateTime  @default(now()) @db.Timestamp(0)
+  updatedAt DateTime  @default(now()) @db.Timestamp(0)
+  DatVe     DatVe[]
+  RapPhim   RapPhim   @relation(fields: [maRap], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Ghe_ibfk_1")
+
+  @@index([maRap], map: "maRap")
+}
+
+model HeThongRap {
+  id            Int       @id @default(autoincrement())
+  tenHeThongRap String?   @db.VarChar(255)
+  logo          String?   @db.VarChar(255)
+  deletedBy     Int       @default(0)
+  isDeleted     Boolean   @default(false)
+  deletedAt     DateTime? @db.Timestamp(0)
+  createdAt     DateTime  @default(now()) @db.Timestamp(0)
+  updatedAt     DateTime  @default(now()) @db.Timestamp(0)
+  CumRap        CumRap[]
+}
+
+model LichChieu {
+  id           Int       @id @default(autoincrement())
+  maRap        Int
+  maPhim       Int
+  giaVe        Int?
+  ngayGioChieu DateTime  @default(now()) @db.Timestamp(0)
+  deletedBy    Int       @default(0)
+  isDeleted    Boolean   @default(false)
+  deletedAt    DateTime? @db.Timestamp(0)
+  createdAt    DateTime  @default(now()) @db.Timestamp(0)
+  updatedAt    DateTime  @default(now()) @db.Timestamp(0)
+  DatVe        DatVe[]
+  RapPhim      RapPhim   @relation(fields: [maRap], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "LichChieu_ibfk_1")
+  Phim         Phim      @relation(fields: [maPhim], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "LichChieu_ibfk_2")
+
+  @@index([maPhim], map: "maPhim")
+  @@index([maRap], map: "maRap")
+}
+
+model NguoiDung {
+  id            Int       @id @default(autoincrement())
+  hoTen         String?   @db.VarChar(255)
+  email         String?   @unique(map: "email") @db.VarChar(255)
+  phone         String?   @db.VarChar(255)
+  password      String?   @db.VarChar(255)
+  loaiNguoiDung String?   @db.VarChar(255)
+  facebookId    String?   @unique(map: "facebookId") @db.VarChar(255)
+  googleId      String?   @unique(map: "googleId") @db.VarChar(255)
+  deletedBy     Int       @default(0)
+  isDeleted     Boolean   @default(false)
+  deletedAt     DateTime? @db.Timestamp(0)
+  createdAt     DateTime  @default(now()) @db.Timestamp(0)
+  updatedAt     DateTime  @default(now()) @db.Timestamp(0)
+  DatVe         DatVe[]
+}
+
+model Phim {
+  id            Int         @id @default(autoincrement())
+  tenPhim       String?     @db.VarChar(255)
+  trailer       String?     @db.VarChar(255)
+  hinhAnh       String?     @db.VarChar(255)
+  moTa          String?     @db.VarChar(255)
+  ngayKhoiChieu DateTime    @default(now()) @db.Timestamp(0)
+  danhGia       Int         @default(0)
+  hot           Boolean     @default(false)
+  dangChieu     Boolean     @default(false)
+  sapChieu      Boolean     @default(false)
+  deletedBy     Int         @default(0)
+  isDeleted     Boolean     @default(false)
+  deletedAt     DateTime?   @db.Timestamp(0)
+  createdAt     DateTime    @default(now()) @db.Timestamp(0)
+  updatedAt     DateTime    @default(now()) @db.Timestamp(0)
+  Banner        Banner[]
+  LichChieu     LichChieu[]
+}
+
+model RapPhim {
+  id        Int         @id @default(autoincrement())
+  tenRap    String?     @db.VarChar(255)
+  maCumRap  Int
+  deletedBy Int         @default(0)
+  isDeleted Boolean     @default(false)
+  deletedAt DateTime?   @db.Timestamp(0)
+  createdAt DateTime    @default(now()) @db.Timestamp(0)
+  updatedAt DateTime    @default(now()) @db.Timestamp(0)
+  Ghe       Ghe[]
+  LichChieu LichChieu[]
+  CumRap    CumRap      @relation(fields: [maCumRap], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "RapPhim_ibfk_1")
+
+  @@index([maCumRap], map: "maCumRap")
+}
