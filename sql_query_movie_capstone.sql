@@ -125,15 +125,31 @@ CREATE TABLE IF NOT EXISTS `LichChieu` (
 );
 
 
+CREATE TABLE IF NOT EXISTS `LoaiNguoiDung` (
+	`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	`tenLoai` VARCHAR(255),
+	`moTa` VARCHAR(255),
+	`isActive` BOOL DEFAULT 1,
+	-- mặc định luôn luôn có
+	-- mặc định luôn luôn có
+	`deletedBy` INT NOT NULL DEFAULT 0,
+	`isDeleted` TINYINT(1) NOT NULL DEFAULT 0,
+	`deletedAt` TIMESTAMP NULL DEFAULT NULL,
+	`createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+
 CREATE TABLE IF NOT EXISTS `NguoiDung` (
 	`id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	`hoTen` VARCHAR(255),
 	`email` VARCHAR(255) UNIQUE,
 	`phone` VARCHAR(255),
 	`password` VARCHAR(255),
-	`loaiNguoiDung` VARCHAR(255),
+	`maLoaiNguoiDung` INT NOT NULL DEFAULT 2,
 	`facebookId` VARCHAR(255) UNIQUE,
 	`googleId` VARCHAR(255) UNIQUE,
+	FOREIGN KEY (`maLoaiNguoiDung`) REFERENCES `LoaiNguoiDung` (`id`),
 	-- mặc định luôn luôn có
 	-- mặc định luôn luôn có
 	`deletedBy` INT NOT NULL DEFAULT 0,

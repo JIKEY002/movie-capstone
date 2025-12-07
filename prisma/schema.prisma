@@ -105,20 +105,23 @@ model LichChieu {
 }
 
 model NguoiDung {
-  id            Int       @id @default(autoincrement())
-  hoTen         String?   @db.VarChar(255)
-  email         String?   @unique(map: "email") @db.VarChar(255)
-  phone         String?   @db.VarChar(255)
-  password      String?   @db.VarChar(255)
-  loaiNguoiDung String?   @db.VarChar(255)
-  facebookId    String?   @unique(map: "facebookId") @db.VarChar(255)
-  googleId      String?   @unique(map: "googleId") @db.VarChar(255)
-  deletedBy     Int       @default(0)
-  isDeleted     Boolean   @default(false)
-  deletedAt     DateTime? @db.Timestamp(0)
-  createdAt     DateTime  @default(now()) @db.Timestamp(0)
-  updatedAt     DateTime  @default(now()) @db.Timestamp(0)
-  DatVe         DatVe[]
+  id              Int           @id @default(autoincrement())
+  hoTen           String?       @db.VarChar(255)
+  email           String?       @unique(map: "email") @db.VarChar(255)
+  phone           String?       @db.VarChar(255)
+  password        String?       @db.VarChar(255)
+  maLoaiNguoiDung Int           @default(2)
+  facebookId      String?       @unique(map: "facebookId") @db.VarChar(255)
+  googleId        String?       @unique(map: "googleId") @db.VarChar(255)
+  deletedBy       Int           @default(0)
+  isDeleted       Boolean       @default(false)
+  deletedAt       DateTime?     @db.Timestamp(0)
+  createdAt       DateTime      @default(now()) @db.Timestamp(0)
+  updatedAt       DateTime      @default(now()) @db.Timestamp(0)
+  DatVe           DatVe[]
+  LoaiNguoiDung   LoaiNguoiDung @relation(fields: [maLoaiNguoiDung], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "NguoiDung_ibfk_1")
+
+  @@index([maLoaiNguoiDung], map: "maLoaiNguoiDung")
 }
 
 model Phim {
@@ -155,4 +158,17 @@ model RapPhim {
   CumRap    CumRap      @relation(fields: [maCumRap], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "RapPhim_ibfk_1")
 
   @@index([maCumRap], map: "maCumRap")
+}
+
+model LoaiNguoiDung {
+  id        Int         @id @default(autoincrement())
+  tenLoai   String?     @db.VarChar(255)
+  moTa      String?     @db.VarChar(255)
+  isActive  Boolean?    @default(true)
+  deletedBy Int         @default(0)
+  isDeleted Boolean     @default(false)
+  deletedAt DateTime?   @db.Timestamp(0)
+  createdAt DateTime    @default(now()) @db.Timestamp(0)
+  updatedAt DateTime    @default(now()) @db.Timestamp(0)
+  NguoiDung NguoiDung[]
 }

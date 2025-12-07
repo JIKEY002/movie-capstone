@@ -62,3 +62,8 @@ export type Phim = Prisma.PhimModel
  * 
  */
 export type RapPhim = Prisma.RapPhimModel
+/**
+ * Model LoaiNguoiDung
+ * 
+ */
+export type LoaiNguoiDung = Prisma.LoaiNguoiDungModel

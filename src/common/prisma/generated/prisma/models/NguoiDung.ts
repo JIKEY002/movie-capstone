@@ -28,11 +28,13 @@ export type AggregateNguoiDung = {
 
 export type NguoiDungAvgAggregateOutputType = {
   id: number | null
+  maLoaiNguoiDung: number | null
   deletedBy: number | null
 }
 
 export type NguoiDungSumAggregateOutputType = {
   id: number | null
+  maLoaiNguoiDung: number | null
   deletedBy: number | null
 }
 
@@ -42,7 +44,7 @@ export type NguoiDungMinAggregateOutputType = {
   email: string | null
   phone: string | null
   password: string | null
-  loaiNguoiDung: string | null
+  maLoaiNguoiDung: number | null
   facebookId: string | null
   googleId: string | null
   deletedBy: number | null
@@ -58,7 +60,7 @@ export type NguoiDungMaxAggregateOutputType = {
   email: string | null
   phone: string | null
   password: string | null
-  loaiNguoiDung: string | null
+  maLoaiNguoiDung: number | null
   facebookId: string | null
   googleId: string | null
   deletedBy: number | null
@@ -74,7 +76,7 @@ export type NguoiDungCountAggregateOutputType = {
   email: number
   phone: number
   password: number
-  loaiNguoiDung: number
+  maLoaiNguoiDung: number
   facebookId: number
   googleId: number
   deletedBy: number
@@ -88,11 +90,13 @@ export type NguoiDungCountAggregateOutputType = {
 
 export type NguoiDungAvgAggregateInputType = {
   id?: true
+  maLoaiNguoiDung?: true
   deletedBy?: true
 }
 
 export type NguoiDungSumAggregateInputType = {
   id?: true
+  maLoaiNguoiDung?: true
   deletedBy?: true
 }
 
@@ -102,7 +106,7 @@ export type NguoiDungMinAggregateInputType = {
   email?: true
   phone?: true
   password?: true
-  loaiNguoiDung?: true
+  maLoaiNguoiDung?: true
   facebookId?: true
   googleId?: true
   deletedBy?: true
@@ -118,7 +122,7 @@ export type NguoiDungMaxAggregateInputType = {
   email?: true
   phone?: true
   password?: true
-  loaiNguoiDung?: true
+  maLoaiNguoiDung?: true
   facebookId?: true
   googleId?: true
   deletedBy?: true
@@ -134,7 +138,7 @@ export type NguoiDungCountAggregateInputType = {
   email?: true
   phone?: true
   password?: true
-  loaiNguoiDung?: true
+  maLoaiNguoiDung?: true
   facebookId?: true
   googleId?: true
   deletedBy?: true
@@ -237,7 +241,7 @@ export type NguoiDungGroupByOutputType = {
   email: string | null
   phone: string | null
   password: string | null
-  loaiNguoiDung: string | null
+  maLoaiNguoiDung: number
   facebookId: string | null
   googleId: string | null
   deletedBy: number
@@ -276,7 +280,7 @@ export type NguoiDungWhereInput = {
   email?: Prisma.StringNullableFilter<"NguoiDung"> | string | null
   phone?: Prisma.StringNullableFilter<"NguoiDung"> | string | null
   password?: Prisma.StringNullableFilter<"NguoiDung"> | string | null
-  loaiNguoiDung?: Prisma.StringNullableFilter<"NguoiDung"> | string | null
+  maLoaiNguoiDung?: Prisma.IntFilter<"NguoiDung"> | number
   facebookId?: Prisma.StringNullableFilter<"NguoiDung"> | string | null
   googleId?: Prisma.StringNullableFilter<"NguoiDung"> | string | null
   deletedBy?: Prisma.IntFilter<"NguoiDung"> | number
@@ -285,6 +289,7 @@ export type NguoiDungWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"NguoiDung"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"NguoiDung"> | Date | string
   DatVe?: Prisma.DatVeListRelationFilter
+  LoaiNguoiDung?: Prisma.XOR<Prisma.LoaiNguoiDungScalarRelationFilter, Prisma.LoaiNguoiDungWhereInput>
 }
 
 export type NguoiDungOrderByWithRelationInput = {
@@ -293,7 +298,7 @@ export type NguoiDungOrderByWithRelationInput = {
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   phone?: Prisma.SortOrderInput | Prisma.SortOrder
   password?: Prisma.SortOrderInput | Prisma.SortOrder
-  loaiNguoiDung?: Prisma.SortOrderInput | Prisma.SortOrder
+  maLoaiNguoiDung?: Prisma.SortOrder
   facebookId?: Prisma.SortOrderInput | Prisma.SortOrder
   googleId?: Prisma.SortOrderInput | Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
@@ -302,6 +307,7 @@ export type NguoiDungOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   DatVe?: Prisma.DatVeOrderByRelationAggregateInput
+  LoaiNguoiDung?: Prisma.LoaiNguoiDungOrderByWithRelationInput
   _relevance?: Prisma.NguoiDungOrderByRelevanceInput
 }
 
@@ -316,13 +322,14 @@ export type NguoiDungWhereUniqueInput = Prisma.AtLeast<{
   hoTen?: Prisma.StringNullableFilter<"NguoiDung"> | string | null
   phone?: Prisma.StringNullableFilter<"NguoiDung"> | string | null
   password?: Prisma.StringNullableFilter<"NguoiDung"> | string | null
-  loaiNguoiDung?: Prisma.StringNullableFilter<"NguoiDung"> | string | null
+  maLoaiNguoiDung?: Prisma.IntFilter<"NguoiDung"> | number
   deletedBy?: Prisma.IntFilter<"NguoiDung"> | number
   isDeleted?: Prisma.BoolFilter<"NguoiDung"> | boolean
   deletedAt?: Prisma.DateTimeNullableFilter<"NguoiDung"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"NguoiDung"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"NguoiDung"> | Date | string
   DatVe?: Prisma.DatVeListRelationFilter
+  LoaiNguoiDung?: Prisma.XOR<Prisma.LoaiNguoiDungScalarRelationFilter, Prisma.LoaiNguoiDungWhereInput>
 }, "id" | "email" | "facebookId" | "googleId">
 
 export type NguoiDungOrderByWithAggregationInput = {
@@ -331,7 +338,7 @@ export type NguoiDungOrderByWithAggregationInput = {
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   phone?: Prisma.SortOrderInput | Prisma.SortOrder
   password?: Prisma.SortOrderInput | Prisma.SortOrder
-  loaiNguoiDung?: Prisma.SortOrderInput | Prisma.SortOrder
+  maLoaiNguoiDung?: Prisma.SortOrder
   facebookId?: Prisma.SortOrderInput | Prisma.SortOrder
   googleId?: Prisma.SortOrderInput | Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
@@ -355,7 +362,7 @@ export type NguoiDungScalarWhereWithAggregatesInput = {
   email?: Prisma.StringNullableWithAggregatesFilter<"NguoiDung"> | string | null
   phone?: Prisma.StringNullableWithAggregatesFilter<"NguoiDung"> | string | null
   password?: Prisma.StringNullableWithAggregatesFilter<"NguoiDung"> | string | null
-  loaiNguoiDung?: Prisma.StringNullableWithAggregatesFilter<"NguoiDung"> | string | null
+  maLoaiNguoiDung?: Prisma.IntWithAggregatesFilter<"NguoiDung"> | number
   facebookId?: Prisma.StringNullableWithAggregatesFilter<"NguoiDung"> | string | null
   googleId?: Prisma.StringNullableWithAggregatesFilter<"NguoiDung"> | string | null
   deletedBy?: Prisma.IntWithAggregatesFilter<"NguoiDung"> | number
@@ -370,7 +377,6 @@ export type NguoiDungCreateInput = {
   email?: string | null
   phone?: string | null
   password?: string | null
-  loaiNguoiDung?: string | null
   facebookId?: string | null
   googleId?: string | null
   deletedBy?: number
@@ -379,6 +385,7 @@ export type NguoiDungCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   DatVe?: Prisma.DatVeCreateNestedManyWithoutNguoiDungInput
+  LoaiNguoiDung?: Prisma.LoaiNguoiDungCreateNestedOneWithoutNguoiDungInput
 }
 
 export type NguoiDungUncheckedCreateInput = {
@@ -387,7 +394,7 @@ export type NguoiDungUncheckedCreateInput = {
   email?: string | null
   phone?: string | null
   password?: string | null
-  loaiNguoiDung?: string | null
+  maLoaiNguoiDung?: number
   facebookId?: string | null
   googleId?: string | null
   deletedBy?: number
@@ -403,7 +410,6 @@ export type NguoiDungUpdateInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  loaiNguoiDung?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   facebookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   googleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
@@ -412,6 +418,7 @@ export type NguoiDungUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   DatVe?: Prisma.DatVeUpdateManyWithoutNguoiDungNestedInput
+  LoaiNguoiDung?: Prisma.LoaiNguoiDungUpdateOneRequiredWithoutNguoiDungNestedInput
 }
 
 export type NguoiDungUncheckedUpdateInput = {
@@ -420,7 +427,7 @@ export type NguoiDungUncheckedUpdateInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  loaiNguoiDung?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  maLoaiNguoiDung?: Prisma.IntFieldUpdateOperationsInput | number
   facebookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   googleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
@@ -437,7 +444,7 @@ export type NguoiDungCreateManyInput = {
   email?: string | null
   phone?: string | null
   password?: string | null
-  loaiNguoiDung?: string | null
+  maLoaiNguoiDung?: number
   facebookId?: string | null
   googleId?: string | null
   deletedBy?: number
@@ -452,7 +459,6 @@ export type NguoiDungUpdateManyMutationInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  loaiNguoiDung?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   facebookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   googleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
@@ -468,7 +474,7 @@ export type NguoiDungUncheckedUpdateManyInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  loaiNguoiDung?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  maLoaiNguoiDung?: Prisma.IntFieldUpdateOperationsInput | number
   facebookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   googleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
@@ -495,7 +501,7 @@ export type NguoiDungCountOrderByAggregateInput = {
   email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  loaiNguoiDung?: Prisma.SortOrder
+  maLoaiNguoiDung?: Prisma.SortOrder
   facebookId?: Prisma.SortOrder
   googleId?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
@@ -507,6 +513,7 @@ export type NguoiDungCountOrderByAggregateInput = {
 
 export type NguoiDungAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  maLoaiNguoiDung?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
 }
 
@@ -516,7 +523,7 @@ export type NguoiDungMaxOrderByAggregateInput = {
   email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  loaiNguoiDung?: Prisma.SortOrder
+  maLoaiNguoiDung?: Prisma.SortOrder
   facebookId?: Prisma.SortOrder
   googleId?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
@@ -532,7 +539,7 @@ export type NguoiDungMinOrderByAggregateInput = {
   email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  loaiNguoiDung?: Prisma.SortOrder
+  maLoaiNguoiDung?: Prisma.SortOrder
   facebookId?: Prisma.SortOrder
   googleId?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
@@ -544,7 +551,18 @@ export type NguoiDungMinOrderByAggregateInput = {
 
 export type NguoiDungSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  maLoaiNguoiDung?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
+}
+
+export type NguoiDungListRelationFilter = {
+  every?: Prisma.NguoiDungWhereInput
+  some?: Prisma.NguoiDungWhereInput
+  none?: Prisma.NguoiDungWhereInput
+}
+
+export type NguoiDungOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
 }
 
 export type NguoiDungCreateNestedOneWithoutDatVeInput = {
@@ -561,12 +579,53 @@ export type NguoiDungUpdateOneRequiredWithoutDatVeNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.NguoiDungUpdateToOneWithWhereWithoutDatVeInput, Prisma.NguoiDungUpdateWithoutDatVeInput>, Prisma.NguoiDungUncheckedUpdateWithoutDatVeInput>
 }
 
+export type NguoiDungCreateNestedManyWithoutLoaiNguoiDungInput = {
+  create?: Prisma.XOR<Prisma.NguoiDungCreateWithoutLoaiNguoiDungInput, Prisma.NguoiDungUncheckedCreateWithoutLoaiNguoiDungInput> | Prisma.NguoiDungCreateWithoutLoaiNguoiDungInput[] | Prisma.NguoiDungUncheckedCreateWithoutLoaiNguoiDungInput[]
+  connectOrCreate?: Prisma.NguoiDungCreateOrConnectWithoutLoaiNguoiDungInput | Prisma.NguoiDungCreateOrConnectWithoutLoaiNguoiDungInput[]
+  createMany?: Prisma.NguoiDungCreateManyLoaiNguoiDungInputEnvelope
+  connect?: Prisma.NguoiDungWhereUniqueInput | Prisma.NguoiDungWhereUniqueInput[]
+}
+
+export type NguoiDungUncheckedCreateNestedManyWithoutLoaiNguoiDungInput = {
+  create?: Prisma.XOR<Prisma.NguoiDungCreateWithoutLoaiNguoiDungInput, Prisma.NguoiDungUncheckedCreateWithoutLoaiNguoiDungInput> | Prisma.NguoiDungCreateWithoutLoaiNguoiDungInput[] | Prisma.NguoiDungUncheckedCreateWithoutLoaiNguoiDungInput[]
+  connectOrCreate?: Prisma.NguoiDungCreateOrConnectWithoutLoaiNguoiDungInput | Prisma.NguoiDungCreateOrConnectWithoutLoaiNguoiDungInput[]
+  createMany?: Prisma.NguoiDungCreateManyLoaiNguoiDungInputEnvelope
+  connect?: Prisma.NguoiDungWhereUniqueInput | Prisma.NguoiDungWhereUniqueInput[]
+}
+
+export type NguoiDungUpdateManyWithoutLoaiNguoiDungNestedInput = {
+  create?: Prisma.XOR<Prisma.NguoiDungCreateWithoutLoaiNguoiDungInput, Prisma.NguoiDungUncheckedCreateWithoutLoaiNguoiDungInput> | Prisma.NguoiDungCreateWithoutLoaiNguoiDungInput[] | Prisma.NguoiDungUncheckedCreateWithoutLoaiNguoiDungInput[]
+  connectOrCreate?: Prisma.NguoiDungCreateOrConnectWithoutLoaiNguoiDungInput | Prisma.NguoiDungCreateOrConnectWithoutLoaiNguoiDungInput[]
+  upsert?: Prisma.NguoiDungUpsertWithWhereUniqueWithoutLoaiNguoiDungInput | Prisma.NguoiDungUpsertWithWhereUniqueWithoutLoaiNguoiDungInput[]
+  createMany?: Prisma.NguoiDungCreateManyLoaiNguoiDungInputEnvelope
+  set?: Prisma.NguoiDungWhereUniqueInput | Prisma.NguoiDungWhereUniqueInput[]
+  disconnect?: Prisma.NguoiDungWhereUniqueInput | Prisma.NguoiDungWhereUniqueInput[]
+  delete?: Prisma.NguoiDungWhereUniqueInput | Prisma.NguoiDungWhereUniqueInput[]
+  connect?: Prisma.NguoiDungWhereUniqueInput | Prisma.NguoiDungWhereUniqueInput[]
+  update?: Prisma.NguoiDungUpdateWithWhereUniqueWithoutLoaiNguoiDungInput | Prisma.NguoiDungUpdateWithWhereUniqueWithoutLoaiNguoiDungInput[]
+  updateMany?: Prisma.NguoiDungUpdateManyWithWhereWithoutLoaiNguoiDungInput | Prisma.NguoiDungUpdateManyWithWhereWithoutLoaiNguoiDungInput[]
+  deleteMany?: Prisma.NguoiDungScalarWhereInput | Prisma.NguoiDungScalarWhereInput[]
+}
+
+export type NguoiDungUncheckedUpdateManyWithoutLoaiNguoiDungNestedInput = {
+  create?: Prisma.XOR<Prisma.NguoiDungCreateWithoutLoaiNguoiDungInput, Prisma.NguoiDungUncheckedCreateWithoutLoaiNguoiDungInput> | Prisma.NguoiDungCreateWithoutLoaiNguoiDungInput[] | Prisma.NguoiDungUncheckedCreateWithoutLoaiNguoiDungInput[]
+  connectOrCreate?: Prisma.NguoiDungCreateOrConnectWithoutLoaiNguoiDungInput | Prisma.NguoiDungCreateOrConnectWithoutLoaiNguoiDungInput[]
+  upsert?: Prisma.NguoiDungUpsertWithWhereUniqueWithoutLoaiNguoiDungInput | Prisma.NguoiDungUpsertWithWhereUniqueWithoutLoaiNguoiDungInput[]
+  createMany?: Prisma.NguoiDungCreateManyLoaiNguoiDungInputEnvelope
+  set?: Prisma.NguoiDungWhereUniqueInput | Prisma.NguoiDungWhereUniqueInput[]
+  disconnect?: Prisma.NguoiDungWhereUniqueInput | Prisma.NguoiDungWhereUniqueInput[]
+  delete?: Prisma.NguoiDungWhereUniqueInput | Prisma.NguoiDungWhereUniqueInput[]
+  connect?: Prisma.NguoiDungWhereUniqueInput | Prisma.NguoiDungWhereUniqueInput[]
+  update?: Prisma.NguoiDungUpdateWithWhereUniqueWithoutLoaiNguoiDungInput | Prisma.NguoiDungUpdateWithWhereUniqueWithoutLoaiNguoiDungInput[]
+  updateMany?: Prisma.NguoiDungUpdateManyWithWhereWithoutLoaiNguoiDungInput | Prisma.NguoiDungUpdateManyWithWhereWithoutLoaiNguoiDungInput[]
+  deleteMany?: Prisma.NguoiDungScalarWhereInput | Prisma.NguoiDungScalarWhereInput[]
+}
+
 export type NguoiDungCreateWithoutDatVeInput = {
   hoTen?: string | null
   email?: string | null
   phone?: string | null
   password?: string | null
-  loaiNguoiDung?: string | null
   facebookId?: string | null
   googleId?: string | null
   deletedBy?: number
@@ -574,6 +633,7 @@ export type NguoiDungCreateWithoutDatVeInput = {
   deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  LoaiNguoiDung?: Prisma.LoaiNguoiDungCreateNestedOneWithoutNguoiDungInput
 }
 
 export type NguoiDungUncheckedCreateWithoutDatVeInput = {
@@ -582,7 +642,7 @@ export type NguoiDungUncheckedCreateWithoutDatVeInput = {
   email?: string | null
   phone?: string | null
   password?: string | null
-  loaiNguoiDung?: string | null
+  maLoaiNguoiDung?: number
   facebookId?: string | null
   googleId?: string | null
   deletedBy?: number
@@ -613,7 +673,23 @@ export type NguoiDungUpdateWithoutDatVeInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  loaiNguoiDung?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  facebookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  googleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
+  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  LoaiNguoiDung?: Prisma.LoaiNguoiDungUpdateOneRequiredWithoutNguoiDungNestedInput
+}
+
+export type NguoiDungUncheckedUpdateWithoutDatVeInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  hoTen?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  maLoaiNguoiDung?: Prisma.IntFieldUpdateOperationsInput | number
   facebookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   googleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
@@ -623,13 +699,134 @@ export type NguoiDungUpdateWithoutDatVeInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type NguoiDungUncheckedUpdateWithoutDatVeInput = {
+export type NguoiDungCreateWithoutLoaiNguoiDungInput = {
+  hoTen?: string | null
+  email?: string | null
+  phone?: string | null
+  password?: string | null
+  facebookId?: string | null
+  googleId?: string | null
+  deletedBy?: number
+  isDeleted?: boolean
+  deletedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  DatVe?: Prisma.DatVeCreateNestedManyWithoutNguoiDungInput
+}
+
+export type NguoiDungUncheckedCreateWithoutLoaiNguoiDungInput = {
+  id?: number
+  hoTen?: string | null
+  email?: string | null
+  phone?: string | null
+  password?: string | null
+  facebookId?: string | null
+  googleId?: string | null
+  deletedBy?: number
+  isDeleted?: boolean
+  deletedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  DatVe?: Prisma.DatVeUncheckedCreateNestedManyWithoutNguoiDungInput
+}
+
+export type NguoiDungCreateOrConnectWithoutLoaiNguoiDungInput = {
+  where: Prisma.NguoiDungWhereUniqueInput
+  create: Prisma.XOR<Prisma.NguoiDungCreateWithoutLoaiNguoiDungInput, Prisma.NguoiDungUncheckedCreateWithoutLoaiNguoiDungInput>
+}
+
+export type NguoiDungCreateManyLoaiNguoiDungInputEnvelope = {
+  data: Prisma.NguoiDungCreateManyLoaiNguoiDungInput | Prisma.NguoiDungCreateManyLoaiNguoiDungInput[]
+  skipDuplicates?: boolean
+}
+
+export type NguoiDungUpsertWithWhereUniqueWithoutLoaiNguoiDungInput = {
+  where: Prisma.NguoiDungWhereUniqueInput
+  update: Prisma.XOR<Prisma.NguoiDungUpdateWithoutLoaiNguoiDungInput, Prisma.NguoiDungUncheckedUpdateWithoutLoaiNguoiDungInput>
+  create: Prisma.XOR<Prisma.NguoiDungCreateWithoutLoaiNguoiDungInput, Prisma.NguoiDungUncheckedCreateWithoutLoaiNguoiDungInput>
+}
+
+export type NguoiDungUpdateWithWhereUniqueWithoutLoaiNguoiDungInput = {
+  where: Prisma.NguoiDungWhereUniqueInput
+  data: Prisma.XOR<Prisma.NguoiDungUpdateWithoutLoaiNguoiDungInput, Prisma.NguoiDungUncheckedUpdateWithoutLoaiNguoiDungInput>
+}
+
+export type NguoiDungUpdateManyWithWhereWithoutLoaiNguoiDungInput = {
+  where: Prisma.NguoiDungScalarWhereInput
+  data: Prisma.XOR<Prisma.NguoiDungUpdateManyMutationInput, Prisma.NguoiDungUncheckedUpdateManyWithoutLoaiNguoiDungInput>
+}
+
+export type NguoiDungScalarWhereInput = {
+  AND?: Prisma.NguoiDungScalarWhereInput | Prisma.NguoiDungScalarWhereInput[]
+  OR?: Prisma.NguoiDungScalarWhereInput[]
+  NOT?: Prisma.NguoiDungScalarWhereInput | Prisma.NguoiDungScalarWhereInput[]
+  id?: Prisma.IntFilter<"NguoiDung"> | number
+  hoTen?: Prisma.StringNullableFilter<"NguoiDung"> | string | null
+  email?: Prisma.StringNullableFilter<"NguoiDung"> | string | null
+  phone?: Prisma.StringNullableFilter<"NguoiDung"> | string | null
+  password?: Prisma.StringNullableFilter<"NguoiDung"> | string | null
+  maLoaiNguoiDung?: Prisma.IntFilter<"NguoiDung"> | number
+  facebookId?: Prisma.StringNullableFilter<"NguoiDung"> | string | null
+  googleId?: Prisma.StringNullableFilter<"NguoiDung"> | string | null
+  deletedBy?: Prisma.IntFilter<"NguoiDung"> | number
+  isDeleted?: Prisma.BoolFilter<"NguoiDung"> | boolean
+  deletedAt?: Prisma.DateTimeNullableFilter<"NguoiDung"> | Date | string | null
+  createdAt?: Prisma.DateTimeFilter<"NguoiDung"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"NguoiDung"> | Date | string
+}
+
+export type NguoiDungCreateManyLoaiNguoiDungInput = {
+  id?: number
+  hoTen?: string | null
+  email?: string | null
+  phone?: string | null
+  password?: string | null
+  facebookId?: string | null
+  googleId?: string | null
+  deletedBy?: number
+  isDeleted?: boolean
+  deletedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type NguoiDungUpdateWithoutLoaiNguoiDungInput = {
+  hoTen?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  facebookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  googleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
+  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  DatVe?: Prisma.DatVeUpdateManyWithoutNguoiDungNestedInput
+}
+
+export type NguoiDungUncheckedUpdateWithoutLoaiNguoiDungInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   hoTen?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  loaiNguoiDung?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  facebookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  googleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
+  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  DatVe?: Prisma.DatVeUncheckedUpdateManyWithoutNguoiDungNestedInput
+}
+
+export type NguoiDungUncheckedUpdateManyWithoutLoaiNguoiDungInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  hoTen?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   facebookId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   googleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
@@ -676,7 +873,7 @@ export type NguoiDungSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   email?: boolean
   phone?: boolean
   password?: boolean
-  loaiNguoiDung?: boolean
+  maLoaiNguoiDung?: boolean
   facebookId?: boolean
   googleId?: boolean
   deletedBy?: boolean
@@ -685,6 +882,7 @@ export type NguoiDungSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   createdAt?: boolean
   updatedAt?: boolean
   DatVe?: boolean | Prisma.NguoiDung$DatVeArgs<ExtArgs>
+  LoaiNguoiDung?: boolean | Prisma.LoaiNguoiDungDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.NguoiDungCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["nguoiDung"]>
 
@@ -696,7 +894,7 @@ export type NguoiDungSelectScalar = {
   email?: boolean
   phone?: boolean
   password?: boolean
-  loaiNguoiDung?: boolean
+  maLoaiNguoiDung?: boolean
   facebookId?: boolean
   googleId?: boolean
   deletedBy?: boolean
@@ -706,9 +904,10 @@ export type NguoiDungSelectScalar = {
   updatedAt?: boolean
 }
 
-export type NguoiDungOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "hoTen" | "email" | "phone" | "password" | "loaiNguoiDung" | "facebookId" | "googleId" | "deletedBy" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["nguoiDung"]>
+export type NguoiDungOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "hoTen" | "email" | "phone" | "password" | "maLoaiNguoiDung" | "facebookId" | "googleId" | "deletedBy" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["nguoiDung"]>
 export type NguoiDungInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   DatVe?: boolean | Prisma.NguoiDung$DatVeArgs<ExtArgs>
+  LoaiNguoiDung?: boolean | Prisma.LoaiNguoiDungDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.NguoiDungCountOutputTypeDefaultArgs<ExtArgs>
 }
 
@@ -716,6 +915,7 @@ export type $NguoiDungPayload<ExtArgs extends runtime.Types.Extensions.InternalA
   name: "NguoiDung"
   objects: {
     DatVe: Prisma.$DatVePayload<ExtArgs>[]
+    LoaiNguoiDung: Prisma.$LoaiNguoiDungPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -723,7 +923,7 @@ export type $NguoiDungPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     email: string | null
     phone: string | null
     password: string | null
-    loaiNguoiDung: string | null
+    maLoaiNguoiDung: number
     facebookId: string | null
     googleId: string | null
     deletedBy: number
@@ -1072,6 +1272,7 @@ readonly fields: NguoiDungFieldRefs;
 export interface Prisma__NguoiDungClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   DatVe<T extends Prisma.NguoiDung$DatVeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.NguoiDung$DatVeArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DatVePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  LoaiNguoiDung<T extends Prisma.LoaiNguoiDungDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.LoaiNguoiDungDefaultArgs<ExtArgs>>): Prisma.Prisma__LoaiNguoiDungClient<runtime.Types.Result.GetResult<Prisma.$LoaiNguoiDungPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1106,7 +1307,7 @@ export interface NguoiDungFieldRefs {
   readonly email: Prisma.FieldRef<"NguoiDung", 'String'>
   readonly phone: Prisma.FieldRef<"NguoiDung", 'String'>
   readonly password: Prisma.FieldRef<"NguoiDung", 'String'>
-  readonly loaiNguoiDung: Prisma.FieldRef<"NguoiDung", 'String'>
+  readonly maLoaiNguoiDung: Prisma.FieldRef<"NguoiDung", 'Int'>
   readonly facebookId: Prisma.FieldRef<"NguoiDung", 'String'>
   readonly googleId: Prisma.FieldRef<"NguoiDung", 'String'>
   readonly deletedBy: Prisma.FieldRef<"NguoiDung", 'Int'>
@@ -1332,7 +1533,7 @@ export type NguoiDungCreateArgs<ExtArgs extends runtime.Types.Extensions.Interna
   /**
    * The data needed to create a NguoiDung.
    */
-  data?: Prisma.XOR<Prisma.NguoiDungCreateInput, Prisma.NguoiDungUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.NguoiDungCreateInput, Prisma.NguoiDungUncheckedCreateInput>
 }
 
 /**

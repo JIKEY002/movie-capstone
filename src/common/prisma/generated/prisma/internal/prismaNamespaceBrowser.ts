@@ -59,7 +59,8 @@ export const ModelName = {
   LichChieu: 'LichChieu',
   NguoiDung: 'NguoiDung',
   Phim: 'Phim',
-  RapPhim: 'RapPhim'
+  RapPhim: 'RapPhim',
+  LoaiNguoiDung: 'LoaiNguoiDung'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -173,7 +174,7 @@ export const NguoiDungScalarFieldEnum = {
   email: 'email',
   phone: 'phone',
   password: 'password',
-  loaiNguoiDung: 'loaiNguoiDung',
+  maLoaiNguoiDung: 'maLoaiNguoiDung',
   facebookId: 'facebookId',
   googleId: 'googleId',
   deletedBy: 'deletedBy',
@@ -219,6 +220,21 @@ export const RapPhimScalarFieldEnum = {
 } as const
 
 export type RapPhimScalarFieldEnum = (typeof RapPhimScalarFieldEnum)[keyof typeof RapPhimScalarFieldEnum]
+
+
+export const LoaiNguoiDungScalarFieldEnum = {
+  id: 'id',
+  tenLoai: 'tenLoai',
+  moTa: 'moTa',
+  isActive: 'isActive',
+  deletedBy: 'deletedBy',
+  isDeleted: 'isDeleted',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type LoaiNguoiDungScalarFieldEnum = (typeof LoaiNguoiDungScalarFieldEnum)[keyof typeof LoaiNguoiDungScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -273,7 +289,6 @@ export const NguoiDungOrderByRelevanceFieldEnum = {
   email: 'email',
   phone: 'phone',
   password: 'password',
-  loaiNguoiDung: 'loaiNguoiDung',
   facebookId: 'facebookId',
   googleId: 'googleId'
 } as const
@@ -296,4 +311,12 @@ export const RapPhimOrderByRelevanceFieldEnum = {
 } as const
 
 export type RapPhimOrderByRelevanceFieldEnum = (typeof RapPhimOrderByRelevanceFieldEnum)[keyof typeof RapPhimOrderByRelevanceFieldEnum]
+
+
+export const LoaiNguoiDungOrderByRelevanceFieldEnum = {
+  tenLoai: 'tenLoai',
+  moTa: 'moTa'
+} as const
+
+export type LoaiNguoiDungOrderByRelevanceFieldEnum = (typeof LoaiNguoiDungOrderByRelevanceFieldEnum)[keyof typeof LoaiNguoiDungOrderByRelevanceFieldEnum]
 

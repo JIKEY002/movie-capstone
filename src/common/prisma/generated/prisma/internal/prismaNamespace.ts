@@ -392,7 +392,8 @@ export const ModelName = {
   LichChieu: 'LichChieu',
   NguoiDung: 'NguoiDung',
   Phim: 'Phim',
-  RapPhim: 'RapPhim'
+  RapPhim: 'RapPhim',
+  LoaiNguoiDung: 'LoaiNguoiDung'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -408,7 +409,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "banner" | "cumRap" | "datVe" | "ghe" | "heThongRap" | "lichChieu" | "nguoiDung" | "phim" | "rapPhim"
+    modelProps: "banner" | "cumRap" | "datVe" | "ghe" | "heThongRap" | "lichChieu" | "nguoiDung" | "phim" | "rapPhim" | "loaiNguoiDung"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1006,6 +1007,72 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    LoaiNguoiDung: {
+      payload: Prisma.$LoaiNguoiDungPayload<ExtArgs>
+      fields: Prisma.LoaiNguoiDungFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LoaiNguoiDungFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoaiNguoiDungPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LoaiNguoiDungFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoaiNguoiDungPayload>
+        }
+        findFirst: {
+          args: Prisma.LoaiNguoiDungFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoaiNguoiDungPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LoaiNguoiDungFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoaiNguoiDungPayload>
+        }
+        findMany: {
+          args: Prisma.LoaiNguoiDungFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoaiNguoiDungPayload>[]
+        }
+        create: {
+          args: Prisma.LoaiNguoiDungCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoaiNguoiDungPayload>
+        }
+        createMany: {
+          args: Prisma.LoaiNguoiDungCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.LoaiNguoiDungDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoaiNguoiDungPayload>
+        }
+        update: {
+          args: Prisma.LoaiNguoiDungUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoaiNguoiDungPayload>
+        }
+        deleteMany: {
+          args: Prisma.LoaiNguoiDungDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LoaiNguoiDungUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.LoaiNguoiDungUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoaiNguoiDungPayload>
+        }
+        aggregate: {
+          args: Prisma.LoaiNguoiDungAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLoaiNguoiDung>
+        }
+        groupBy: {
+          args: Prisma.LoaiNguoiDungGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LoaiNguoiDungGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LoaiNguoiDungCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LoaiNguoiDungCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1140,7 +1207,7 @@ export const NguoiDungScalarFieldEnum = {
   email: 'email',
   phone: 'phone',
   password: 'password',
-  loaiNguoiDung: 'loaiNguoiDung',
+  maLoaiNguoiDung: 'maLoaiNguoiDung',
   facebookId: 'facebookId',
   googleId: 'googleId',
   deletedBy: 'deletedBy',
@@ -1186,6 +1253,21 @@ export const RapPhimScalarFieldEnum = {
 } as const
 
 export type RapPhimScalarFieldEnum = (typeof RapPhimScalarFieldEnum)[keyof typeof RapPhimScalarFieldEnum]
+
+
+export const LoaiNguoiDungScalarFieldEnum = {
+  id: 'id',
+  tenLoai: 'tenLoai',
+  moTa: 'moTa',
+  isActive: 'isActive',
+  deletedBy: 'deletedBy',
+  isDeleted: 'isDeleted',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type LoaiNguoiDungScalarFieldEnum = (typeof LoaiNguoiDungScalarFieldEnum)[keyof typeof LoaiNguoiDungScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1240,7 +1322,6 @@ export const NguoiDungOrderByRelevanceFieldEnum = {
   email: 'email',
   phone: 'phone',
   password: 'password',
-  loaiNguoiDung: 'loaiNguoiDung',
   facebookId: 'facebookId',
   googleId: 'googleId'
 } as const
@@ -1263,6 +1344,14 @@ export const RapPhimOrderByRelevanceFieldEnum = {
 } as const
 
 export type RapPhimOrderByRelevanceFieldEnum = (typeof RapPhimOrderByRelevanceFieldEnum)[keyof typeof RapPhimOrderByRelevanceFieldEnum]
+
+
+export const LoaiNguoiDungOrderByRelevanceFieldEnum = {
+  tenLoai: 'tenLoai',
+  moTa: 'moTa'
+} as const
+
+export type LoaiNguoiDungOrderByRelevanceFieldEnum = (typeof LoaiNguoiDungOrderByRelevanceFieldEnum)[keyof typeof LoaiNguoiDungOrderByRelevanceFieldEnum]
 
 
 
@@ -1409,6 +1498,7 @@ export type GlobalOmitConfig = {
   nguoiDung?: Prisma.NguoiDungOmit
   phim?: Prisma.PhimOmit
   rapPhim?: Prisma.RapPhimOmit
+  loaiNguoiDung?: Prisma.LoaiNguoiDungOmit
 }
 
 /* Types for Logging */
