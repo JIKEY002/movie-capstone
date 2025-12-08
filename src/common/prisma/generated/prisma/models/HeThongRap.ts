@@ -40,6 +40,7 @@ export type HeThongRapMinAggregateOutputType = {
   id: number | null
   tenHeThongRap: string | null
   logo: string | null
+  biDanh: string | null
   deletedBy: number | null
   isDeleted: boolean | null
   deletedAt: Date | null
@@ -51,6 +52,7 @@ export type HeThongRapMaxAggregateOutputType = {
   id: number | null
   tenHeThongRap: string | null
   logo: string | null
+  biDanh: string | null
   deletedBy: number | null
   isDeleted: boolean | null
   deletedAt: Date | null
@@ -62,6 +64,7 @@ export type HeThongRapCountAggregateOutputType = {
   id: number
   tenHeThongRap: number
   logo: number
+  biDanh: number
   deletedBy: number
   isDeleted: number
   deletedAt: number
@@ -85,6 +88,7 @@ export type HeThongRapMinAggregateInputType = {
   id?: true
   tenHeThongRap?: true
   logo?: true
+  biDanh?: true
   deletedBy?: true
   isDeleted?: true
   deletedAt?: true
@@ -96,6 +100,7 @@ export type HeThongRapMaxAggregateInputType = {
   id?: true
   tenHeThongRap?: true
   logo?: true
+  biDanh?: true
   deletedBy?: true
   isDeleted?: true
   deletedAt?: true
@@ -107,6 +112,7 @@ export type HeThongRapCountAggregateInputType = {
   id?: true
   tenHeThongRap?: true
   logo?: true
+  biDanh?: true
   deletedBy?: true
   isDeleted?: true
   deletedAt?: true
@@ -205,6 +211,7 @@ export type HeThongRapGroupByOutputType = {
   id: number
   tenHeThongRap: string | null
   logo: string | null
+  biDanh: string | null
   deletedBy: number
   isDeleted: boolean
   deletedAt: Date | null
@@ -239,6 +246,7 @@ export type HeThongRapWhereInput = {
   id?: Prisma.IntFilter<"HeThongRap"> | number
   tenHeThongRap?: Prisma.StringNullableFilter<"HeThongRap"> | string | null
   logo?: Prisma.StringNullableFilter<"HeThongRap"> | string | null
+  biDanh?: Prisma.StringNullableFilter<"HeThongRap"> | string | null
   deletedBy?: Prisma.IntFilter<"HeThongRap"> | number
   isDeleted?: Prisma.BoolFilter<"HeThongRap"> | boolean
   deletedAt?: Prisma.DateTimeNullableFilter<"HeThongRap"> | Date | string | null
@@ -251,6 +259,7 @@ export type HeThongRapOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   tenHeThongRap?: Prisma.SortOrderInput | Prisma.SortOrder
   logo?: Prisma.SortOrderInput | Prisma.SortOrder
+  biDanh?: Prisma.SortOrderInput | Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -267,6 +276,7 @@ export type HeThongRapWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.HeThongRapWhereInput | Prisma.HeThongRapWhereInput[]
   tenHeThongRap?: Prisma.StringNullableFilter<"HeThongRap"> | string | null
   logo?: Prisma.StringNullableFilter<"HeThongRap"> | string | null
+  biDanh?: Prisma.StringNullableFilter<"HeThongRap"> | string | null
   deletedBy?: Prisma.IntFilter<"HeThongRap"> | number
   isDeleted?: Prisma.BoolFilter<"HeThongRap"> | boolean
   deletedAt?: Prisma.DateTimeNullableFilter<"HeThongRap"> | Date | string | null
@@ -279,6 +289,7 @@ export type HeThongRapOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   tenHeThongRap?: Prisma.SortOrderInput | Prisma.SortOrder
   logo?: Prisma.SortOrderInput | Prisma.SortOrder
+  biDanh?: Prisma.SortOrderInput | Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -298,6 +309,7 @@ export type HeThongRapScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"HeThongRap"> | number
   tenHeThongRap?: Prisma.StringNullableWithAggregatesFilter<"HeThongRap"> | string | null
   logo?: Prisma.StringNullableWithAggregatesFilter<"HeThongRap"> | string | null
+  biDanh?: Prisma.StringNullableWithAggregatesFilter<"HeThongRap"> | string | null
   deletedBy?: Prisma.IntWithAggregatesFilter<"HeThongRap"> | number
   isDeleted?: Prisma.BoolWithAggregatesFilter<"HeThongRap"> | boolean
   deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"HeThongRap"> | Date | string | null
@@ -308,6 +320,7 @@ export type HeThongRapScalarWhereWithAggregatesInput = {
 export type HeThongRapCreateInput = {
   tenHeThongRap?: string | null
   logo?: string | null
+  biDanh?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -320,6 +333,7 @@ export type HeThongRapUncheckedCreateInput = {
   id?: number
   tenHeThongRap?: string | null
   logo?: string | null
+  biDanh?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -331,6 +345,7 @@ export type HeThongRapUncheckedCreateInput = {
 export type HeThongRapUpdateInput = {
   tenHeThongRap?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  biDanh?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -343,6 +358,7 @@ export type HeThongRapUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   tenHeThongRap?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  biDanh?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -355,6 +371,7 @@ export type HeThongRapCreateManyInput = {
   id?: number
   tenHeThongRap?: string | null
   logo?: string | null
+  biDanh?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -365,6 +382,7 @@ export type HeThongRapCreateManyInput = {
 export type HeThongRapUpdateManyMutationInput = {
   tenHeThongRap?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  biDanh?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -376,6 +394,7 @@ export type HeThongRapUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   tenHeThongRap?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  biDanh?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -398,6 +417,7 @@ export type HeThongRapCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   tenHeThongRap?: Prisma.SortOrder
   logo?: Prisma.SortOrder
+  biDanh?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
@@ -414,6 +434,7 @@ export type HeThongRapMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   tenHeThongRap?: Prisma.SortOrder
   logo?: Prisma.SortOrder
+  biDanh?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
@@ -425,6 +446,7 @@ export type HeThongRapMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   tenHeThongRap?: Prisma.SortOrder
   logo?: Prisma.SortOrder
+  biDanh?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
@@ -454,6 +476,7 @@ export type HeThongRapUpdateOneRequiredWithoutCumRapNestedInput = {
 export type HeThongRapCreateWithoutCumRapInput = {
   tenHeThongRap?: string | null
   logo?: string | null
+  biDanh?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -465,6 +488,7 @@ export type HeThongRapUncheckedCreateWithoutCumRapInput = {
   id?: number
   tenHeThongRap?: string | null
   logo?: string | null
+  biDanh?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -491,6 +515,7 @@ export type HeThongRapUpdateToOneWithWhereWithoutCumRapInput = {
 export type HeThongRapUpdateWithoutCumRapInput = {
   tenHeThongRap?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  biDanh?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -502,6 +527,7 @@ export type HeThongRapUncheckedUpdateWithoutCumRapInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   tenHeThongRap?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  biDanh?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -544,6 +570,7 @@ export type HeThongRapSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   id?: boolean
   tenHeThongRap?: boolean
   logo?: boolean
+  biDanh?: boolean
   deletedBy?: boolean
   isDeleted?: boolean
   deletedAt?: boolean
@@ -559,6 +586,7 @@ export type HeThongRapSelectScalar = {
   id?: boolean
   tenHeThongRap?: boolean
   logo?: boolean
+  biDanh?: boolean
   deletedBy?: boolean
   isDeleted?: boolean
   deletedAt?: boolean
@@ -566,7 +594,7 @@ export type HeThongRapSelectScalar = {
   updatedAt?: boolean
 }
 
-export type HeThongRapOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenHeThongRap" | "logo" | "deletedBy" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["heThongRap"]>
+export type HeThongRapOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenHeThongRap" | "logo" | "biDanh" | "deletedBy" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["heThongRap"]>
 export type HeThongRapInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   CumRap?: boolean | Prisma.HeThongRap$CumRapArgs<ExtArgs>
   _count?: boolean | Prisma.HeThongRapCountOutputTypeDefaultArgs<ExtArgs>
@@ -581,6 +609,7 @@ export type $HeThongRapPayload<ExtArgs extends runtime.Types.Extensions.Internal
     id: number
     tenHeThongRap: string | null
     logo: string | null
+    biDanh: string | null
     deletedBy: number
     isDeleted: boolean
     deletedAt: Date | null
@@ -959,6 +988,7 @@ export interface HeThongRapFieldRefs {
   readonly id: Prisma.FieldRef<"HeThongRap", 'Int'>
   readonly tenHeThongRap: Prisma.FieldRef<"HeThongRap", 'String'>
   readonly logo: Prisma.FieldRef<"HeThongRap", 'String'>
+  readonly biDanh: Prisma.FieldRef<"HeThongRap", 'String'>
   readonly deletedBy: Prisma.FieldRef<"HeThongRap", 'Int'>
   readonly isDeleted: Prisma.FieldRef<"HeThongRap", 'Boolean'>
   readonly deletedAt: Prisma.FieldRef<"HeThongRap", 'DateTime'>

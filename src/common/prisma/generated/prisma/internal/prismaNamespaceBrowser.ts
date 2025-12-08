@@ -142,6 +142,7 @@ export const HeThongRapScalarFieldEnum = {
   id: 'id',
   tenHeThongRap: 'tenHeThongRap',
   logo: 'logo',
+  biDanh: 'biDanh',
   deletedBy: 'deletedBy',
   isDeleted: 'isDeleted',
   deletedAt: 'deletedAt',
@@ -278,7 +279,8 @@ export type GheOrderByRelevanceFieldEnum = (typeof GheOrderByRelevanceFieldEnum)
 
 export const HeThongRapOrderByRelevanceFieldEnum = {
   tenHeThongRap: 'tenHeThongRap',
-  logo: 'logo'
+  logo: 'logo',
+  biDanh: 'biDanh'
 } as const
 
 export type HeThongRapOrderByRelevanceFieldEnum = (typeof HeThongRapOrderByRelevanceFieldEnum)[keyof typeof HeThongRapOrderByRelevanceFieldEnum]

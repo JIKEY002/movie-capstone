@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import * as jwt from 'jsonwebtoken';
+
 import {
     ACCESS_TOKEN_SECRET,
     REFRESH_TOKEN_SECRET,
